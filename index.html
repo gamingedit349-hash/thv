@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VOGUE REALITY - Property Search</title>
+    <meta name="description" content="Search properties for buy, rent, sell on THE VOGUE REALITY">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">THE VOGUE<span>REALITY</span></a>
+            <div class="city-selector">All India &#9660;</div>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-link">Home Loans</a>
+            <a href="#" class="nav-link">Pay Rent</a>
+            <a href="#properties" class="nav-link">Properties</a>
+        </div>
+    </nav>
+
+    <div class="sub-nav">
+        <a href="#" class="sub-active">Buy</a>
+        <a href="#">Rent</a>
+        <a href="#">New Projects</a>
+        <a href="#">PG</a>
+        <a href="#">Plot</a>
+        <a href="#">Commercial</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="search-widget">
+            <h1>Your Property Search Starts Here</h1>
+            <div class="search-tabs">
+                <button class="tab active" onclick="setTab(this)">Buy</button>
+                <button class="tab" onclick="setTab(this)">Rent</button>
+                <button class="tab" onclick="setTab(this)">PG</button>
+                <button class="tab" onclick="setTab(this)">Plot</button>
+                <button class="tab" onclick="setTab(this)">Commercial</button>
+            </div>
+            <div class="search-box">
+                <div class="search-city-dd">All India</div>
+                <input type="text" id="searchInput" placeholder="Search by city, locality, project, builder...">
+                <button class="filter-btn">Budget &#9660;</button>
+                <button class="filter-btn">Type &#9660;</button>
+                <button id="searchBtn" class="search-action-btn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="properties-section" id="properties">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <a href="#" class="see-all">See all &rarr;</a>
+            </div>
+            <div id="loadingSpinner" class="loading-spinner">Loading properties...</div>
+            <div class="property-grid" id="propertyGrid"></div>
+        </section>
+
+        <section class="services-section">
+            <h2>Property Services</h2>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon si-1">&#128221;</div><h4>Rent Agreement</h4></div>
+                <div class="service-card"><div class="service-icon si-2">&#128666;</div><h4>Packers &amp; Movers</h4></div>
+                <div class="service-card"><div class="service-icon si-3">&#128176;</div><h4>Home Loan</h4></div>
+                <div class="service-card"><div class="service-icon si-4">&#128715;</div><h4>Home Interiors</h4></div>
+                <div class="service-card"><div class="service-icon si-5">&#128200;</div><h4>Property Valuation</h4></div>
+            </div>
+        </section>
+
+        <section class="trending-section">
+            <h2>Trending Localities</h2>
+            <div class="trending-grid">
+                <div class="trending-card"><h4>Andheri West</h4><p>1200+ Properties</p></div>
+                <div class="trending-card"><h4>Bandra West</h4><p>850+ Properties</p></div>
+                <div class="trending-card"><h4>Powai</h4><p>930+ Properties</p></div>
+                <div class="trending-card"><h4>Thane West</h4><p>1500+ Properties</p></div>
+                <div class="trending-card"><h4>Goregaon East</h4><p>720+ Properties</p></div>
+                <div class="trending-card"><h4>Malad West</h4><p>600+ Properties</p></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contact Owner / Agent</h3>
+                <span class="close-modal" id="closeInquiry">&times;</span>
+            </div>
+            <div id="modalPropertyDetails" class="modal-property-info"></div>
+            <form id="inquiryForm">
+                <input type="hidden" id="inquiryPropertyId">
+                <input type="hidden" id="inquiryPropertyTitle">
+                <input type="text" id="inquiryName" placeholder="Name" required>
+                <input type="email" id="inquiryEmail" placeholder="Email" required>
+                <div class="phone-input">
+                    <span class="country-code">+91</span>
+                    <input type="tel" id="inquiryPhone" placeholder="Phone" required>
+                </div>
+                <label class="cb-label"><input type="checkbox" checked> I agree to be contacted by THE VOGUE REALITY</label>
+                <button type="submit" class="btn-primary">Get Contact Details</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>THE VOGUE REALITY</h4>
+                <p>India's No.1 Property Portal. Search properties for buy, rent and new projects.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Properties in India</h4>
+                <ul><li>New Delhi</li><li>Mumbai</li><li>Bangalore</li><li>Pune</li><li>Hyderabad</li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul><li>About Us</li><li>Contact Us</li><li>Careers</li><li>Terms</li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul><li>Facebook</li><li>Instagram</li><li>Twitter</li><li>LinkedIn</li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 THE VOGUE REALITY. All Rights Reserved.</div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

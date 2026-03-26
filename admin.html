@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - THE VOGUE REALITY</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="admin.html" class="logo">THE VOGUE<span>REALITY</span></a>
+            <span style="font-size:0.8rem;color:#8993a4;margin-left:8px;">Admin Panel</span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="post-property-btn" target="_blank">View Website</a>
+        </div>
+    </nav>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <ul class="sidebar-nav">
+                <li><a href="#" class="sidebar-link active" onclick="showTab(event,'dashboard')">Dashboard</a></li>
+                <li><a href="#" class="sidebar-link" onclick="showTab(event,'properties')">Properties</a></li>
+                <li><a href="#" class="sidebar-link" onclick="showTab(event,'inquiries')">Inquiries</a></li>
+                <li><a href="#" class="sidebar-link" onclick="showTab(event,'team')">Brokers Team</a></li>
+            </ul>
+        </aside>
+        <main class="admin-content" id="mainContent">
+            <div class="loading-spinner">Loading dashboard...</div>
+        </main>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
