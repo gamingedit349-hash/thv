@@ -3,12 +3,12 @@
 // Firebase SDK (using CDN modules via compat mode)
 // Firebase config - Replace with your own Firebase project config
 const firebaseConfig = {
-    apiKey: "AIzaSyDemoKeyReplace",
+    apiKey: "AIzaSyBeJpTXm2JHm54ZHjShYxzknb6hFHsU1Zc",
     authDomain: "the-vogue-reality.firebaseapp.com",
     projectId: "the-vogue-reality",
-    storageBucket: "the-vogue-reality.appspot.com",
-    messagingSenderId: "000000000000",
-    appId: "1:000000000000:web:0000000000000000"
+    storageBucket: "the-vogue-reality.firebasestorage.app",
+    messagingSenderId: "180368872036",
+    appId: "1:180368872036:web:534447646e776805c80571"
 };
 
 // Initialize Firebase
