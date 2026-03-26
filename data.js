@@ -12,8 +12,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const db = firebase.firestore();
+const auth = firebase.auth();
 
 // Collections
 const propertiesRef = db.collection('properties');
@@ -67,6 +70,23 @@ async function updateInquiryById(id, data) {
 async function getAllTeam() {
     const snapshot = await teamRef.get();
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+}
+
+// ===== AUTHENTICATION =====
+async function signIn(email, password) {
+    return await auth.signInWithEmailAndPassword(email, password);
+}
+
+async function signUp(email, password) {
+    return await auth.createUserWithEmailAndPassword(email, password);
+}
+
+async function logOut() {
+    return await auth.signOut();
+}
+
+function onAuthChange(callback) {
+    auth.onAuthStateChanged(callback);
 }
 
 // ===== SEED DEFAULT DATA (run once) =====

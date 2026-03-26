@@ -1,5 +1,19 @@
 // admin.js - Admin Panel Logic with Firebase Firestore
 
+// Authentication Check: Redirect to login if not authenticated
+onAuthChange((user) => {
+    if (!user) {
+        window.location.href = 'login.html';
+    }
+});
+
+async function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        await logOut();
+        window.location.href = 'login.html';
+    }
+}
+
 const LOCATIONS = [
     "Andheri West, Mumbai","Andheri East, Mumbai","Bandra West, Mumbai","Bandra East, Mumbai",
     "Powai, Mumbai","Goregaon East, Mumbai","Goregaon West, Mumbai","Malad West, Mumbai",
@@ -459,6 +473,12 @@ function removeImage() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await seedData();
-    renderAdmin('dashboard');
+    // Initial render is handled by Auth state change or default if user exists
+    // But we need to wait for auth to initialize
+    onAuthChange((user) => {
+        if (user) {
+            seedData();
+            renderAdmin('dashboard');
+        }
+    });
 });
